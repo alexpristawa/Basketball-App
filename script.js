@@ -1394,6 +1394,4 @@ let removePx = (str) => {
 
 //Brings you to ESPN.com when you click on the Upcoming Games button
 //Most useless function of them all
-let openUpcomingGames = () => {
-    window.open("https://www.espn.com/nba/schedule", "ESPN");
-}
+let openUpcomingGames = () => { window.open("https://www.espn.com/nba/schedule", "ESPN"); }
