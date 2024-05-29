@@ -1,0 +1,975 @@
+/* Cubic Beziers designed on cubic-bezier.com */
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(34, 34, 34);
+  
+}
+
+* {
+    font-family: Nunito;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input, textarea {
+    user-select: auto;
+    -webkit-user-select: auto;
+}
+
+:root {
+    --circleAnimationDistance: 0.9vh;
+    --circleAnimationDistanceX: 0;
+    --circleAnimationDistanceY: 0;
+}
+
+
+input[type='text']:focus {
+    outline: none;
+}
+
+:root {
+    --mainColor: rgb(143, 111, 74);;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+#title {
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--mainColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    z-index: 10;
+}
+
+#title h1 {
+    color: white;
+    font-family: 'Itim', cursive;
+    font-size: 3rem;
+    transition: 0.3s ease;
+    margin: 0;
+    height: 10vh;
+    line-height: 10vh;
+}
+
+#titleLetterContainer p {
+    color: white;
+    display: inline-block;
+    font-family: 'Itim', cursive;
+    font-size: 3rem;
+    margin: 0;
+    height: 10vh;
+    line-height: 10vh;
+    white-space: pre;
+}
+
+#title > div {
+    flex-basis: calc(100%/3);
+    text-align: center;
+    z-index: 10;
+    overflow: visible;
+}
+
+
+.titleLetterAnimation {
+    animation: titleContainerAnimation 800ms ease-in-out;
+}
+  
+@keyframes titleContainerAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+        color: white;
+    }
+    25% {
+
+    }
+    50% {
+        transform: translateY(-20%) scale(1.4);
+        color: rgb(150,120,120);
+    }
+    75% {
+        /*color: white;*/
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        color: white;
+    }
+}
+
+
+.team {
+    height: 80vh;
+    width: 35vw;
+    display: inline-block;
+    overflow-y: auto;
+    z-index: 2;
+    border: 1px solid black;
+    position: relative;
+}
+
+#bodyId {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+    z-index: 0;
+}
+
+#bodyId > div {
+    background-color: rgba(110, 110, 110,0.8);
+    border-radius: 16px;
+}
+
+#bodyId > div > input[type="text"] {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    margin-top: 1vh;
+    background-color: transparent;
+    border: transparent;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.playerDiv {
+    width: 90%;
+    height: 7vh;
+    margin-left: 5%;
+    background-color: transparent;
+    border: 1px solid rgb(50,50,50);
+    margin-bottom: 3%;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.teamPlayers {
+    width: 100%;
+    height: max-content;
+}
+
+#title:hover {
+    cursor: pointer;
+}
+
+#title:hover div h1{
+    opacity:0.05;
+}
+
+
+#title div h1:hover{
+    opacity:1;
+}
+
+.playerAddHolder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease;
+    margin-bottom: 3%;
+}
+
+.playerAddHolderSlideDown {
+    animation: playerAddHolderSlideDown 400ms cubic-bezier(.29,.43,.65,1.35); 
+}
+
+.playerDivSlideDown {
+    animation: playerDivSlideDown 400ms cubic-bezier(.29,.43,.65,1.35);
+}
+
+.playerAddHolderSlideUp {
+    animation: playerAddHolderSlideUp 400ms cubic-bezier(.44,-0.54,.93,.46);
+}
+
+.playerDivSlideUp {
+    animation: playerDivSlideUp 400ms cubic-bezier(.44,-0.54,.93,.46);
+}
+
+.playerAddHolder div{
+    padding: 1.5%;
+    background-color: rgb(50,50,50);
+    border-radius: 100px;
+    height: 1.3vw;
+    width: 1.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerAddHolder div:hover{
+    cursor: pointer;
+}
+
+.playerAdd {
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+@keyframes playerAddHolderSlideDown {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes playerDivSlideDown {
+    from {
+        transform: translateY(-130%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes playerAddHolderSlideUp {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes playerDivSlideUp {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-130%);
+    }
+}
+
+
+
+
+
+.xButtons {
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    border: 0px transparent;
+    font-weight: 700;
+    color: rgb(0,0,0);
+    text-align: center;
+    height:20px;
+    width:20px;
+    transition: 0.2s background ease, 0.2s transform ease;
+}
+
+.xButtons:hover {
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0.8;
+    color: rgb(255,255,255);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+.xButtons:active {
+    animation: shrink 0.15s ease-in;
+}
+
+.xButtonAnimating { 
+    pointer-events: none;
+}
+
+.xButtonTeamDiv {
+    top: 30%;
+    right: 0.512848vh;
+}
+
+.xButtonPlayerChooser {
+    top: 0.8%;
+    right: 1%;
+}
+
+@keyframes shrink {
+    0%{
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(0.8)
+    }
+    100%{        
+        transform: scale(1.1)
+    }
+}
+
+.playerNumber {
+    background-color: transparent;
+    border: 0;
+    font-size: 2rem;
+    color: black;
+    margin: 0;
+    width: 18%;
+}
+
+*::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+.playerInfoDiv {
+    height: 90%;
+    width: 40%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.playerName, .playerPosition{
+    height: 40%;
+    margin: 0;
+    padding-left: 1%;
+    width: 95%;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 5px;
+    color: black;
+}
+
+.playerName::placeholder, .playerPosition::placeholder {
+    color: rgb(50,50,50);
+}
+
+
+
+
+#canvas { 
+    position: absolute;
+    top: 15vh;
+    left: 3vw;
+    background-color: rgb(192, 140, 82);
+    z-index: 1;
+    border: 3px solid black;
+    cursor: crosshair;
+    user-select: none;
+    -webkit-user-select: none;
+
+}
+
+
+
+@keyframes teamSlideOutRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(calc(35vw + 30vw/4));
+    }
+}
+
+@keyframes teamSlideOutLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(calc(-35vw - 30vw/4));
+    }
+}
+
+.teamSlideOutLeft {
+    animation: teamSlideOutLeft 500ms cubic-bezier(.34,.83,.62,1) forwards;
+}
+
+.teamSlideOutRight {
+    animation: teamSlideOutRight 500ms cubic-bezier(.34,.83,.62,1) forwards;
+}
+
+.teamSlideInLeft {
+    position: relative;
+    animation: teamSlideInLeft 500ms cubic-bezier(.34,.83,.62,1) forwards;
+}
+
+.teamSlideInRight {
+    position: relative;
+    animation: teamSlideInRight 500ms cubic-bezier(.34,.83,.62,1) forwards;
+}
+
+@keyframes teamSlideInRight {
+    0% {
+        transform: translateX(calc(35vw + 30vw/4));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes teamSlideInLeft {
+    0% {
+        transform: translateX(calc(-35vw - 30vw/4));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.team.teamSlideOutLeft:hover, .team.teamSlideOutRight:hover {
+    cursor: pointer;
+}
+
+
+.clickOptions {
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 1000px;
+    border: 1px solid gray;
+    background-color: rgb(200,200,200);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 0.85rem;
+    transition: box-shadow 200ms ease;
+    z-index: 3;
+}
+
+.clickOptions:hover {
+    box-shadow: 0px 0px 2vw 0.1vw rgb(0,0,0);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeOut {
+    animation: fadeOut 300ms ease-out;
+}
+
+.fadeIn {
+    animation: fadeIn 300ms ease-out;
+}
+
+.centerXDiv {
+    background-color: rgb(143, 57, 57);
+    border-radius: 1000px;
+    border: 0.5px solid gray;
+    position: absolute;
+    width: 1.25vw;
+    height: 1.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 3;
+}
+
+.centerXDiv:hover {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.centerX {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgb(25,25,25);
+}
+
+@keyframes clickOptionsIn0 {
+    0% {
+        transform: translate(var(--circleAnimationDistanceX), var(--circleAnimationDistanceY)) scale(0.1);
+    }
+    100% {
+        translate: translate(0%, 0%) scale(1);
+    }
+}
+
+@keyframes clickOptionsIn1 {
+    0% {
+        transform: translate(calc(-1 * var(--circleAnimationDistanceX)), var(--circleAnimationDistanceY)) scale(0.1);
+    }
+    100% {
+        translate: translate(0%, 0%) scale(1);
+    }
+}
+
+@keyframes clickOptionsIn2 {
+    0% {
+        transform: translateX(calc(-1 * var(--circleAnimationDistance))) scale(0.1);
+    }
+    100% {
+        translate: translateX(0%) scale(1);
+    }
+}
+
+@keyframes clickOptionsIn3 {
+    0% {
+        transform: translate(calc(-1 * var(--circleAnimationDistanceX)), calc(-1 * var(--circleAnimationDistanceY))) scale(0.1);
+    }
+    100% {
+        translate: translate(0%, 0%) scale(1);
+    }
+}
+
+@keyframes clickOptionsIn4 {
+    0% {
+        transform: translate(var(--circleAnimationDistanceX), calc(-1 * var(--circleAnimationDistanceY))) scale(0.1);
+    }
+    100% {
+        translate: translate(0%, 0%) scale(1);
+    }
+}
+
+@keyframes clickOptionsIn5 {
+    0% {
+        transform: translateX(var(--circleAnimationDistance)) scale(0.1);
+    }
+    100% {
+        translate: translateX(0%) scale(1);
+    }
+}
+
+.clickOptionsIn0 {
+    animation: clickOptionsIn0 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.clickOptionsIn1 {
+    animation: clickOptionsIn1 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.clickOptionsIn2 {
+    animation: clickOptionsIn2 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.clickOptionsIn3 {
+    animation: clickOptionsIn3 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.clickOptionsIn4 {
+    animation: clickOptionsIn4 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.clickOptionsIn5 {
+    animation: clickOptionsIn5 300ms cubic-bezier(.21,.57,.33,1.49);
+}
+
+.teamName {
+    position: absolute;
+    margin: 0;
+}
+
+.teamName p {
+    color: white;
+    margin: 0;
+}
+
+#teamSide {
+    width: 2vw;
+    height: 2vw;
+    color: white;
+    position: absolute;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#teamSideRotater {
+    width: 1.5vw;
+    height: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.teamSideRotater {
+    animation: rotate360 700ms cubic-bezier(.35,-0.61,.67,1.5);
+}
+
+@keyframes rotate360 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.circleOptionNumber {
+    color: black;
+    font-size: 1rem;
+    margin: 0;
+    overflow: visible;
+}
+
+.colorSquareOnDisplay {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 1vw;
+    height: 1vw;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.colorsHolder {
+    position: absolute;
+    height: 1vw;
+    border: 2px solid black;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    align-items: center;
+}
+
+.colorSquares {
+    height: 1vw;
+    width: 1vw;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+
+@keyframes canvasSlideDown {
+    0% {
+        transform: translateY(0%)
+    }
+    100% {
+        transform: translateY(100vh)
+    }
+}
+
+@keyframes canvasSlideInUp {
+    0% {
+        transform: translateY(100vh)
+    }
+    100% {
+        transform: translateY(0%)
+    }
+}
+
+.canvasSlideDown {
+    animation: canvasSlideDown 0.5s cubic-bezier(.38,-0.47,.89,.43) forwards;
+    transform: translateY(100vh)
+}
+
+.canvasSlideInUp {
+    animation: canvasSlideInUp 0.5s cubic-bezier(.13,.44,.66,1.33) forwards;
+    transform: translateY(0)
+}
+
+.playerChooser {
+    height: 50vh;
+    width: 30vw;
+    background-color: rgba(170,170,170,0.9);
+    border: 2px solid rgb(100,100,100);
+    border-radius: 10px;
+    position: absolute;
+    margin: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    z-index: 3;
+}
+
+.playerChooserTeamDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: calc(50% - 1px);
+    padding: 2%;
+}
+
+.teamContainerTeamName {
+    text-align: center;
+    margin: 0;
+}
+
+.playerChooserPlayerHolder {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    padding: 2%;
+    overflow-y: auto;
+}
+
+.playerChooserPlayerHolder > * {
+    flex-shrink: 0;
+}
+
+.playerChooserPlayerHolder::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.playerHolderIndividualPlayerHolder {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    border-radius: 7px;
+    background-color: rgba(100,100,100,0);
+    transition: 0.2s background ease, 0.2s transform ease;
+}
+
+.playerHolderIndividualPlayerHolder:hover {
+    background-color: rgba(100,100,100,0.3);
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.playerHolderPlayerNumber {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.playerHolderNameAndPosDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-left: 5%;
+}
+
+.playerHolderPlayerName {
+    margin: 0;
+    font-size: 0.9rem;
+    margin-bottom: -2%;
+}
+
+.playerHolderPlayerPosition {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+.playerHolderHr {
+    width: 90%;
+    border: 0.5px solid rgb(30,30,30);
+    margin-left: auto;
+}
+
+.playerChooserVr {
+    width: 2px;
+    border-radius: 100px;
+    height: 90%;
+    background-color: rgb(120, 120, 120);
+    border: 0;
+    margin: 0;
+}
+
+
+
+#teamStatsContainer { 
+    width: 90vw;
+    height: 80vh;
+    position: absolute;
+    display: none;
+    border: 2px solid black;
+    background-color: rgba(110, 110, 110,0.8);
+    z-index: 999999;
+    left: 5vw;
+    top: 15vh;
+    vertical-align: center;
+    transform: translate(-50%,-70%);
+    
+    border-radius: 2%;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 1%;
+}
+
+
+.teamStats {
+    border: 1px solid black;
+    border-radius: 10px;
+    
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    overflow: auto;
+}
+
+#team1Stats {
+    margin-right: 1%;
+}
+
+#team2Stats {
+    margin-left: 1%;
+}
+
+@keyframes shake {
+    0% { transform: translate(2px, 2px) rotate(1deg); }
+    10% { transform: translate(-2px, -3px) rotate(-2deg); }
+    20% { transform: translate(-4px, 1px) rotate(2deg); }
+    30% { transform: translate(4px, 3px) rotate(1deg); }
+    40% { transform: translate(2px, -2px) rotate(2deg); }
+    50% { transform: translate(-2px, 3px) rotate(-2deg); }
+    60% { transform: translate(-4px, 2px) rotate(1deg); }
+    70% { transform: translate(4px, 2px) rotate(-2deg); }
+    80% { transform: translate(-2px, -2px) rotate(2deg); }
+    90% { transform: translate(2px, 3px) rotate(1deg); }
+    100% { transform: translate(2px, -3px) rotate(-2deg); }
+}
+
+.resetAllStats {
+    position: absolute;
+    top: 3.4%;
+    left: 4%;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid rgb(30,30,30);
+    cursor: pointer;
+    transition: background 300ms ease;
+}
+
+.resetAllStats:hover { 
+    background-color: rgba(30,30,30,0.3);
+}
+
+.teamStats > h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.teamStatsPlayerHolder > * {
+    flex-shrink: 0;
+}
+
+.teamStatsPlayerHolder {
+    width: 95%;
+    height: 88%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+#teamStatsContainer *::-webkit-scrollbar {
+    display: none;
+}
+
+#teamStatsContainer *::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.teamStatsPlayer {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-right: 0.1%;
+    width: 48%;
+    height: 43%;
+    border-radius: 10px;
+    border: 1px solid rgb(30, 30, 30);
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.teamStatsPlayer > .playerInfoHolder {
+    margin-top: 1%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: transparent;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.teamStatsPlayerNumber {
+    margin: 0;
+    margin-left: 2%;
+    font-size: 2rem;
+}
+
+.teamStatsNameAndPosDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-left: 4%;
+}
+
+.teamStatsPlayerName {
+    margin: 0;
+    font-size: 1.1rem;
+    margin-bottom: -2%;
+}
+
+.teamStatsPlayerPosition {
+    margin: 0;
+    font-size: 0.87rem;
+}
+
+.playerStatsStatsDiv {
+    margin-top: 1%;
+    height: 70%;
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+} 
+
+.playerStatsStatsDiv > p {
+    margin: 0;
+    font-family: 'Kalam', cursive;
+    width: 50%;
+    white-space: pre;
+}

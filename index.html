@@ -1,0 +1,96 @@
+<!-- Icon library from Font Awesome -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+    </style>
+    <title>Basketball App</title>
+</head>
+<body>
+    <header id = 'title'>
+        <div>
+            <h1 class="headerItem" onclick="toggleTeamStats();">Team Stats</h1>
+        </div>
+        <div>
+            <div id = 'titleLetterContainer' onclick = 'goToCourt();'>
+                <h1 class="headerItem" id = 'appTitleH1'>Basketball App</h1>
+            </div>
+        </div>
+        <div>
+            <h1 class="headerItem" id = "upcomingGames" onclick="openUpcomingGames()">Upcoming Games</h1>
+        </div>
+    </header>
+
+    <section id = 'playerScreen'>
+        <main>
+            <div id = 'bodyId'>
+                <div class = 'team' id = 'team1'>
+                    <input class = 'teamNameText' id = 'teamNameText1' type = 'text' value = 'Team 1'></input>
+                    <div class = 'teamPlayers' id = 'teamPlayers1'></div>
+                    <div class = 'playerAddHolder'>
+                        <div onclick = 'newPlayer(1)'>
+                            <i class="fas fa-plus playerAdd"></i>
+                        </div>
+                    </div>
+                    <div class = 'colorSquareOnDisplay'></div>
+                    <button class = 'resetAllStats' id = 'resetAllStats1'>Reset All Stats</button>
+                </div>
+
+                <div class = 'team' id = 'team2'>
+                    <input class = 'teamNameText' id = 'teamNameText2' type = 'text' value = 'Team 2'></input>
+                    <div class = 'teamPlayers' id = 'teamPlayers2'></div>
+                    <div class = 'playerAddHolder'>
+                        <div onclick = 'newPlayer(2)'>
+                            <i class="fas fa-plus playerAdd"></i>
+                        </div>
+                    </div>
+                    <div class = 'colorSquareOnDisplay'></div>
+                    <button class = 'resetAllStats' id = 'resetAllStats2'>Reset All Stats</button>
+                </div>
+
+                
+            </div>
+        </main>
+    </section>
+
+    <div class = 'teamName' id = 'teamNameLeft'>
+        <p id = 'teamNameLeftp'  class="canvasSlideInUp">Team 1</p>
+    </div>
+    <div id = 'teamSide'>
+        <div id = 'teamSideRotater'>
+            <i class="fas fa-sync canvasSlideInUp" id='switchTeamsButton'></i>
+        </div>
+    </div>
+    <div class = 'teamName' id = 'teamNameRight'>
+        <p id = 'teamNameRightp' class="canvasSlideInUp">Team 2</p>
+    </div>
+    
+
+
+    <div id="teamStatsContainer" data-active = "closed" class="canvasSlideInUp">
+        <div id = "team1Stats" class = "teamStats"> 
+            <h1></h1>
+            <div class = 'teamStatsPlayerHolder'></div>
+        </div>
+    
+        <div id = "team2Stats" class = "teamStats"> 
+            <h1></h1>
+            <div class = 'teamStatsPlayerHolder'></div>
+        </div>
+    </div>
+    
+
+    <canvas id="canvas" class="canvasSlideInUp"></canvas>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
